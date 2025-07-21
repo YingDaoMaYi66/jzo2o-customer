@@ -2,4 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jzo2o.customer.mapper.BankAccountMapper">
 
+    <insert id="addOrUpdateBankAccount" parameterType="com.jzo2o.customer.model.domain.BankAccount">
+
+        INSERT INTO  bank_account(
+            id, type, name, bank_name, province, city, district, branch, account, account_certification
+        ) VALUES (
+                     #{id}, #{type}, #{name}, #{bankName}, #{province}, #{city}, #{district}, #{branch}, #{account}, #{accountCertification}
+                 )
+        ON DUPLICATE KEY UPDATE
+                             type = VALUES(type),
+                             name = VALUES(name),
+                             bank_name = VALUES(bank_name),
+                             province = VALUES(province),
+                             city = VALUES(city),
+                             district = VALUES(district),
+                             branch = VALUES(branch),
+                             account = VALUES(account),
+                             account_certification = VALUES(account_certification);
+    </insert>
 </mapper>
