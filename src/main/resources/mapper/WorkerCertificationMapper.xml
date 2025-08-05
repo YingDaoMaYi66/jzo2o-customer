@@ -2,4 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jzo2o.customer.mapper.WorkerCertificationMapper">
 
+    <insert id="addOrUpdate" parameterType="com.jzo2o.customer.model.domain.WorkerCertification">
+        INSERT INTO worker_certification(
+            id, name, id_card_no, front_img, back_img,
+            certification_material, certification_status, certification_time
+        ) VALUES (
+                     #{id}, #{name}, #{idCardNo}, #{frontImg}, #{backImg},
+                     #{certificationMaterial}, #{certificationStatus}, #{certificationTime}
+
+                 )
+        ON DUPLICATE KEY UPDATE
+                             name = VALUES(name),
+                             id_card_no = VALUES(id_card_no),
+                             front_img = VALUES(front_img),
+                             back_img = VALUES(back_img),
+                             certification_material = VALUES(certification_material),
+                             certification_status = VALUES(certification_status),
+                             certification_time = VALUES(certification_time)
+
+    </insert>
 </mapper>

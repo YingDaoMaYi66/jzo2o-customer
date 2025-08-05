@@ -2,4 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jzo2o.customer.mapper.AgencyCertificationMapper">
 
+    <insert id="addOrUpdate" parameterType="com.jzo2o.customer.model.domain.AgencyCertification">
+        INSERT INTO agency_certification(
+            id, name, id_number, legal_person_name,
+            legal_person_id_card_no, business_license,
+            certification_status, certification_time
+        ) VALUES (
+                     #{id}, #{name}, #{idNumber}, #{legalPersonName},
+                     #{legalPersonIdCardNo}, #{businessLicense},
+                     #{certificationStatus}, #{certificationTime}
+                 )
+        ON DUPLICATE KEY UPDATE
+                             name = VALUES(name),
+                             id_number = VALUES(id_number),
+                             legal_person_name = VALUES(legal_person_name),
+                             legal_person_id_card_no = VALUES(legal_person_id_card_no),
+                             business_license = VALUES(business_license),
+                             certification_status = VALUES(certification_status),
+                             certification_time = VALUES(certification_time)
+    </insert>
 </mapper>

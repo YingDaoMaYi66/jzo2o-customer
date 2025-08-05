@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 /**
  * @author itcast
  */
-@RestController("operationAgencyCertificationController")
+@RestController("AgencyCertificationController")
 @RequestMapping("/operation/agency-certification")
 @Api(tags = "运营端 - 机构认证信息相关接口")
 public class AgencyCertificationController {

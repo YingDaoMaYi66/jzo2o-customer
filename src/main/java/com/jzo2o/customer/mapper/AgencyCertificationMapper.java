@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface AgencyCertificationMapper extends BaseMapper<AgencyCertification> {
 
+    void addOrUpdate(AgencyCertification agencyCertification);
 }

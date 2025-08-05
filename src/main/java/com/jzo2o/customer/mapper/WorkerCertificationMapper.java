@@ -13,4 +13,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface WorkerCertificationMapper extends BaseMapper<WorkerCertification> {
 
+    /**
+     * 添加或更新服务人员认证信息
+     * @param workerCertification
+     */
+    void addOrUpdate(WorkerCertification workerCertification);
 }

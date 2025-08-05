@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 /**
  * @author itcast
  */
-@RestController("operationWorkerCertificationController")
+@RestController("WorkerCertificationController")
 @RequestMapping("/operation/worker-certification")
 @Api(tags = "运营端 - 服务人员认证信息相关接口")
 public class WorkerCertificationController {

@@ -28,7 +28,7 @@ public class WorkerCertification implements Serializable {
     /**
      * 服务人员id
      */
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    @TableId(value = "id", type = IdType.INPUT)
     private Long id;
 
     /**
